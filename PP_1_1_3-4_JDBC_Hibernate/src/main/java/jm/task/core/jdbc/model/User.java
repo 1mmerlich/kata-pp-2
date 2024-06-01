@@ -3,10 +3,11 @@ package jm.task.core.jdbc.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS_HN")
+@Table(name = "USERS_HN") //прописываем название таблицы с которой будет связано
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "ID")
     private Long id;
 
     @Column(name = "NAME")
