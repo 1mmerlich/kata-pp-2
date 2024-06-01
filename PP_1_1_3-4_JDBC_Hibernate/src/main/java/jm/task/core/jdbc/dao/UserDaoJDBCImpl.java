@@ -81,7 +81,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String sql = "DELETE FROM USERS";
         String sql2 = "ALTER TABLE USERS AUTO_INCREMENT = 1";
         try (PreparedStatement preparedStatement1 = connection.prepareStatement(sql);
-             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);) {
+             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2)) {
             preparedStatement1.executeUpdate();
             preparedStatement2.executeUpdate();
         } catch (SQLException e) {

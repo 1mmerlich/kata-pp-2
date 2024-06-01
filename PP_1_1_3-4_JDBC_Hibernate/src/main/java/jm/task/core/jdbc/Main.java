@@ -11,7 +11,7 @@ public class Main {
 
 //        userService.createUsersTable();
 //        userService.removeUserById(1);
-//        userService.saveUser("Антон", "Албычев", (byte) 48);
+//        userService.saveUser("Илья", "Тулунин", (byte) 26);
 //        userService.dropUsersTable();
 //        userService.cleanUsersTable();
 //        userService.getAllUsers();
