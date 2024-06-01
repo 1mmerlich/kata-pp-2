@@ -5,14 +5,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
-
 public class UserServiceTest {
     private final UserService userService = new UserServiceImpl();
-
     private final String testName = "Ivan";
     private final String testLastName = "Ivanov";
     private final byte testAge = 5;
-
 
     @Test
     public void dropUsersTable() {
@@ -82,7 +79,6 @@ public class UserServiceTest {
             Assert.fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e);
         }
     }
-
     @Test
     public void cleanUsersTable() {
         try {
@@ -98,5 +94,4 @@ public class UserServiceTest {
             Assert.fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e);
         }
     }
-
 }
