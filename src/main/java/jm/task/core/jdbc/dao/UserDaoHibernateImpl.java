@@ -1,8 +1,6 @@
 package jm.task.core.jdbc.dao;
-
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
@@ -18,7 +16,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
         try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
+            session.beginTransaction(); //открываем транзакцию
             String sql = "CREATE TABLE IF NOT EXISTS USERS_HN (" +
                     "ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
                     "NAME VARCHAR(255) NOT NULL," +
@@ -26,7 +24,7 @@ public class UserDaoHibernateImpl implements UserDao {
                     "AGE INT NOT NULL)";
             NativeQuery<User> query = session.createNativeQuery(sql, User.class);
             query.executeUpdate();
-            session.getTransaction().commit();
+            session.getTransaction().commit(); //закрываем транзакцию
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,9 +47,9 @@ public class UserDaoHibernateImpl implements UserDao {
     public void saveUser(String name, String lastName, byte age) {
         User user = new User(name, lastName, age);
         try (Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
+            session.beginTransaction(); //открываем транзакцию
+            session.save(user); //сохраняем
+            session.getTransaction().commit(); //закрываем транзакцию
         } catch (Exception e) {
             e.printStackTrace();
         }

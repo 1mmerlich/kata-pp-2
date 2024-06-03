@@ -21,17 +21,17 @@ public class Util {
     }
     public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration()
-                .setProperty("hibernate.connection.url", URL)
+                .setProperty("hibernate.connection.url", URL) //настраиваем Hibernate, метод set.Property устанавливает конфигурацию
                 .setProperty("hibernate.connection.username", USER)
                 .setProperty("hibernate.connection.password", PASSWORD)
                 .setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver")
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect")
                 .setProperty("hibernate.show_sql", "false")
-                .addAnnotatedClass(User.class);
+                .addAnnotatedClass(User.class); //добавляем аннотированный класс User в конфигурацию и строим SessionFactory
         return configuration.buildSessionFactory();
     }
     public static void closeSessionFactory () {
-        getSessionFactory().close();
+        getSessionFactory().close(); //закрываем SF и освобождаем ресурсы
     }
 
 }
